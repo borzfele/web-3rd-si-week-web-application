@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial"-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" media="screen" href="{{url_for('static', filename='style.css')}}"/>
+    <title>
+        {%if mentors_and_schools %}
+            Mentors and schools
+        {%elif all_schools%}
+            All schools
+        {%elif mentors_by_country%}
+            Mentors by country
+        {%elif contacts%}
+            Contacts
+        {%elif applicants%}
+            Applicants
+        {%elif applicants_and_mentors%}
+            Applicants and mentors
+        {%else%}
+            Lófasz
+        {% endif %}
+    </title>
+</head>
+<body>
+    <table>
+        {%if mentors_and_schools %}
+            {%for tupple in mentors_and_schools %}
+                <tr>
+                    <td>{{tupple[0]}}</td>
+                    <td>{{tupple[1]}}</td>
+                    <td>{{tupple[2]}}</td>
+                </tr>
+            {%endfor%}
+        {%elif all_schools%}
+            {%for tupple in all_schools%}
+                <tr>
+                    <td>{{tupple[0]}}</td>
+                    <td>{{tupple[1]}}</td>
+                    <td>{{tupple[2]}}</td>
+                </tr>
+            {%endfor%}
+        {%elif mentors_by_country%}
+            {%for tupple in mentors_by_country%}
+                <tr>
+                    <td>{{tupple[0]}}</td>
+                    <td>{{tupple[1]}}</td>
+                </tr>
+            {%endfor%}
+        {%elif contacts%}
+            {%for tupple in contacts%}
+                <tr>
+                    <td>{{tupple[0]}}</td>
+                    <td>{{tupple[1]}}</td>
+                </tr>
+            {%endfor%}
+        {%elif applicants%}
+            {%for tupple in applicants%}
+                <tr>
+                    <td>{{tupple[0]}}</td>
+                    <td>{{tupple[1]}}</td>
+                    <td>{{tupple[2]}}</td>
+                </tr>
+            {%endfor%}
+        {%elif applicants_and_mentors%}
+            {%for tupple in applicants_and_mentors%}
+                <tr>
+                    <td>{{tupple[0]}}</td>
+                    <td>{{tupple[1]}}</td>
+                    <td>{{tupple[2]}}</td>
+                </tr>
+            {%endfor%}
+        {%else%}
+            Existence is pain.
+        {%endif%}
+    </table>
+</body>
+</html>
